@@ -1,0 +1,112 @@
+/* assets/css/custom_style.css */
+
+/* ----------------------------------------------------
+   Cấu hình Biến màu (Dựa trên Bootstrap Primary Blue)
+   ---------------------------------------------------- */
+:root {
+    --primary-color: #0d6efd; /* Xanh dương sáng của Bootstrap */
+    --secondary-bg: #f8f9fa; /* Nền xám nhạt (bg-light) */
+    --sidebar-bg: #343a40;   /* Nền tối cho Sidebar */
+    --sidebar-text: #ccc;    /* Màu chữ nhạt cho link */
+    --sidebar-hover-bg: #495057; /* Màu nền hover */
+}
+
+/* ----------------------------------------------------
+   LAYOUT VÀ NỘI DUNG CHÍNH
+   ---------------------------------------------------- */
+body { 
+    min-height: 100vh;
+    background-color: var(--secondary-bg); /* Nền trang xám nhạt */
+}
+
+/* Tinh chỉnh phần nội dung chính */
+#content-wrapper { 
+    background-color: white; /* Đảm bảo khu vực nội dung chính là màu trắng */
+}
+
+/* ----------------------------------------------------
+   SIDEBAR (MENU)
+   ---------------------------------------------------- */
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: var(--sidebar-bg);
+    color: #fff;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tạo bóng nhẹ */
+}
+
+/* Tiêu đề Sidebar */
+#sidebar .sidebar-heading {
+    color: var(--primary-color); /* Màu xanh dương sáng */
+}
+
+/* Link Menu */
+#sidebar .list-group-item {
+    border: none;
+    padding: 1rem 1rem;
+    color: var(--sidebar-text) !important; /* Quan trọng: Ghi đè màu của Bootstrap */
+    background-color: transparent !important;
+    border-radius: 0;
+}
+
+/* Trạng thái Hover */
+#sidebar .list-group-item:hover {
+    background-color: var(--sidebar-hover-bg) !important;
+    color: #fff !important;
+}
+
+/* Trạng thái Active (Đang chọn) */
+#sidebar .list-group-item.active {
+    background-color: var(--primary-color) !important; /* Nền xanh dương sáng */
+    color: #fff !important;
+}
+
+/* Chữ "HỘP THƯ", "TRA CỨU",... */
+#sidebar p.small {
+    color: #999; 
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE VÀ UTILITIES
+   ---------------------------------------------------- */
+
+/* Điều chỉnh khi bật/tắt sidebar */
+#wrapper.toggled #sidebar {
+    margin-left: -250px;
+}
+
+/* Media Query cho Mobile */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #wrapper.toggled #sidebar {
+        margin-left: 0;
+    }
+    #content-wrapper {
+        min-width: 100vw;
+    }
+}
+
+/* Tăng độ rộng hiển thị nội dung chính */
+#main-content {
+    /* Đảm bảo nội dung chính luôn chiếm 100% không gian còn lại */
+    padding-left: 0 !important;
+    padding-right: 0 !important; 
+}
+/* Nếu bạn muốn loại bỏ giới hạn max-width của container-fluid (ít phổ biến hơn) */
+.container-fluid {
+    width: 100%;
+    /* Điều chỉnh nếu BS5 giới hạn mặc định */
+}
+
+/* Nếu bạn muốn nội dung chính sát lề hơn */
+.navbar, #main-content {
+    /* Điều chỉnh padding ngang chung (px-4) */
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+}
